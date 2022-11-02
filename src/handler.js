@@ -34,7 +34,6 @@ const addBookHandler = (request, h) => {
         insertedAt,
         updatedAt,
     };
-    books.push(newBook);
 
     if (!name) {
         const response = h.response({
@@ -53,6 +52,8 @@ const addBookHandler = (request, h) => {
         response.code(400);
         return response;
     }
+
+    books.push(newBook);
 
     const isSuccess = books.filter((book) => book.id === id).length > 0;
 
